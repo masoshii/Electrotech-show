@@ -1,0 +1,3 @@
+Poweshell > .\gradlew.bat run
+
+Bash > ./gradlew run
