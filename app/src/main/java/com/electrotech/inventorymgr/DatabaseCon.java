@@ -4,13 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.io.File;
 
 public class DatabaseCon {
     private Connection connection;
 
     public DatabaseCon() throws SQLException{
-        String url="jdbc:mysql://localhost:3306/sakurastop?useSSL=false";
-        connection = DriverManager.getConnection(url, "dba_user", "r4#I<xe6£jqv]2_S2/nX");
+        String workingDirectoryPath = System.getProperty("user.dir");
+        String databasePath = workingDirectoryPath + File.separator + "src" + File.separator + "main" + File.separator + "db" + File.separator + "electrotech.db";
+
+
+        String url="jdbc:sqlite:" + databasePath;
+        connection = DriverManager.getConnection(url);
         System.out.println("** Conexión con la base de datos exitosa.");
     }
 
